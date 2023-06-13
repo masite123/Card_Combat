@@ -1,0 +1,432 @@
+:root
+{
+    --banner-height: 150px;
+    --banner-font-size: 75pt;
+    --border-width: 2px;
+    --image-border-radius: 7px;
+    --result-height: 250px;
+    --result-width: 500px;
+    --slot_image_height: 120px;
+    --sidebar-width: 50px;
+    
+    --gameboard-width: 1920px;
+    --gameboard-height: 1080px;
+    --card-width: 1.5in;
+    --card-height: 2.1in;
+
+
+    --sidebar-colour: white;
+    --tile-background: #7e4f46;
+    --main-background: var(--tile-background);
+
+    font-family: "Fira Sans", sans-serif;
+}
+
+
+*
+{
+    box-sizing: border-box;
+}
+
+
+#title
+{
+    filter: drop-shadow(4px 4px 2px black);
+    color: rgb(255, 225, 0);
+    font-family: 'Copperplate', 'Papyrus', 'fantasy';
+    font-size: var(--banner-font-size);
+    margin: 0;
+    position: relative;
+    text-align: center;
+    top: 0;
+}
+
+body
+{
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+#game_board
+{
+    aspect-ratio: 9/16;
+    background-image: url("assets/field.jpg");
+    height: var(--gameboard-height);
+    position: absolute; 
+    width: var(--gameboard-width);
+    margin: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+main
+{
+    background: var(--main-background);
+    height: var(--gameboard-height);
+    position: absolute; 
+    width: var(--gameboard-width);
+    margin: auto;
+    top: var(--banner-height);
+    left: 0;
+    bottom: auto;
+    right: 0;
+}
+
+header a
+{
+    color: white;
+    position: absolute;
+    right: 1em;
+}
+
+
+#board_grid
+{
+    aspect-ratio: 9/16;
+    background-image: url("assets/ground.jpg");
+    background-size: cover;
+    width: 60%;
+    height:60%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.player_board
+{
+    background: rgb(211, 20, 68);
+    width: calc(3*var(--card-width));
+    height:var(--card-height);
+
+    margin: auto;
+    position: absolute;
+}
+
+#player0_board
+{
+    left: 0;
+    right: 0;
+    bottom:0;
+}
+
+#player1_board
+{
+    transform: rotate(90deg);
+    left: calc(var(--card-width)*3*-1*0.5 + var(--card-height)*0.5);
+    right:auto;
+    top:0;
+    bottom: 0;
+}
+
+#player2_board
+{
+    transform: rotate(180deg);
+    left: 0;
+    right: 0;
+}
+
+#player3_board
+{
+    transform: rotate(-90deg);
+    right: calc(var(--card-width)*3*-1*0.5 + var(--card-height)*0.5);
+    left:auto;
+    top:0;
+    bottom: 0;
+}
+
+.player_hand
+{
+    background: rgb(211, 200, 68);
+    width: calc(4*var(--card-width));
+    height:var(--card-height);
+    margin: auto;
+    position: absolute;
+}
+
+#player2_hand
+{
+    left: 700px;
+    right:auto;
+    transform: rotate(180deg);
+}
+
+#player0_hand
+{
+    left: auto;
+    right: 700px;
+    bottom:0;
+}
+
+#player1_hand
+{
+    top: 300px;
+    right:auto;
+    transform: rotate(90deg);
+    left: calc(var(--card-width)*4*-1*0.5 + var(--card-height)*0.5);
+}
+
+#player3_hand
+{
+    top:auto;
+    bottom: 300px;
+    transform: rotate(-90deg);
+    right: calc(var(--card-width)*4*-1*0.5 + var(--card-height)*0.5);
+}
+
+.player_stats
+{
+    background-image: url("assets/stats.png");
+    background-size: cover;
+    color: white;
+    aspect-ratio: 2;
+    height:15%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px purple;
+    font-family: 'Copperplate', 'Papyrus', 'fantasy';
+    font-size: 36px;
+    white-space: pre;
+}
+
+.turn_stats
+{
+    background-image: url("assets/stats_turn.png");
+    background-size: cover;
+    color: white;
+    aspect-ratio: 2;
+    height:15%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px purple;
+    font-family: 'Copperplate', 'Papyrus', 'fantasy';
+    font-size: 36px;
+    white-space: pre;
+}
+
+#player2_stats
+{
+    left: 300px;
+    right:auto;
+}
+
+#player0_stats
+{
+    left: auto;
+    right: 300px;
+    bottom:0;
+}
+
+#player1_stats
+{
+    left: 0px;
+    right: auto;
+    bottom: 100px;;
+}
+
+#player3_stats
+{
+    right: 0px;
+    top: 100px;
+}
+
+#deck
+{
+    
+    background-image: url("assets/covered.png");
+    background-size: cover;
+    height: var(--card-height);
+    width: var(--card-width);
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.cell
+{
+    background-size: cover;
+    border: 1px black;
+    display: inline-block;
+    height: var(--card-height);
+    width: var(--card-width);
+    margin: 0;
+    padding: 0;
+    position: relative;  
+}
+
+.cell.empty
+{
+    background-image: url("assets/empty.png")
+}
+
+.cell.covered
+{
+    background-image: url("assets/covered.png")
+}
+
+.cell.ace
+{
+    background-image: url("assets/ace.png")
+}
+
+.cell.red1
+{
+    background-image: url("assets/red1.png")
+}
+
+.cell.red2
+{
+    background-image: url("assets/red2.png")
+}
+
+.cell.red3
+{
+    background-image: url("assets/red3.png")
+}
+
+.cell.red4
+{
+    background-image: url("assets/red4.png")
+}
+
+.cell.red5
+{
+    background-image: url("assets/red5.png")
+}
+
+.cell.green1
+{
+    background-image: url("assets/green1.png")
+}
+
+.cell.green2
+{
+    background-image: url("assets/green2.png")
+}
+
+.cell.green3
+{
+    background-image: url("assets/green3.png")
+}
+
+.cell.green4
+{
+    background-image: url("assets/green4.png")
+}
+
+.cell.green5
+{
+    background-image: url("assets/green5.png")
+}
+.cell.blue1
+{
+    background-image: url("assets/blue1.png")
+}
+
+.cell.blue2
+{
+    background-image: url("assets/blue2.png")
+}
+
+.cell.blue3
+{
+    background-image: url("assets/blue3.png")
+}
+
+.cell.blue4
+{
+    background-image: url("assets/blue4.png")
+}
+
+.cell.blue5
+{
+    background-image: url("assets/blue5.png")
+}
+
+#result_dialog
+{
+    background: none;
+    border: none;
+    color: var(--sidebar-colour);
+    filter: drop-shadow(4px 4px 2px black);
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+#result_dialog::backdrop
+{
+    backdrop-filter: blur(2px); /* This won't work in Firefox yet */
+}
+
+#result_dialog h2
+{
+    color: rebeccapurple;
+    font-family: 'Copperplate', 'Papyrus', 'fantasy';
+    font-size: 100pt;
+    margin: 0;
+    margin-top: calc(2 * var(--banner-height));
+}
+
+#start_dialog
+{
+    background-image: url(assets/field.jpg);
+    height: var(--gameboard-height);
+    position: absolute;
+    top: var(--banner-height);
+    bottom: auto;
+    width: var(--gameboard-width);
+    text-align: center;
+}
+#start_dialog h2
+{
+    color: rgb(255, 225, 0);
+    font-family: 'Copperplate', 'Papyrus', 'fantasy';
+    font-size: 100pt;
+    margin: 0;
+    margin-top: calc(2 * var(--banner-height));
+}
+
+#ingame_dialog
+{
+    background: none;
+    border: none;
+    color: var(--sidebar-colour);
+    filter: drop-shadow(4px 4px 2px black);
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+#ingame_dialog::backdrop
+{
+    backdrop-filter: blur(2px); /* This won't work in Firefox yet */
+}
+
+#ingame_dialog h2
+{
+    color: rgb(255, 225, 0);
+    font-family: 'Copperplate', 'Papyrus', 'fantasy';
+    font-size: 100pt;
+    margin: 0;
+    margin-top: calc(2 * var(--banner-height));
+}
+
